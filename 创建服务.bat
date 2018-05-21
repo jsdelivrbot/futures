@@ -1,0 +1,1 @@
+ionic g provider MyData

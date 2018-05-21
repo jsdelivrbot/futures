@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>新手福利</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <img src="assets/images/novice/welfare_banner.png" class="banner">
+    <div class="coupon" *ngFor="let x of data" style="background: url('assets/images/my/welfare_bg@2x.png') no-repeat;
+    background-size: 100% 100%;">
+        <p class="p1">
+            {{x.title}}
+        </p>
+        <p class="p2">
+            {{x.description}}
+        </p>
+        <p class="p4">
+            {{x.value}}<br>
+        </p>
+    </div>
+</ion-content>

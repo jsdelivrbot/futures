@@ -1,0 +1,11 @@
+<ion-content>
+    <img class="back_img" tappable src="assets/images/home/icon_back@{{dpr}}x.png" (click)="goBack()">
+    <div class="v_wrap">
+        <video id="video" ishivideo="true" isrotate="true" poster="http://5b0988e595225.cdn.sohucs.com/images/20171222/bb4035dab59d4d109094a7fa09ebdf78.png" autoHide="true" src="assets/video/movie.mp4"></video>
+    </div>
+    <div class="card_wrap">
+        <button ion-item *ngFor="let item of noviceData" (click)="goDetail(item);">
+      {{item.title}}
+    </button>
+    </div>
+</ion-content>

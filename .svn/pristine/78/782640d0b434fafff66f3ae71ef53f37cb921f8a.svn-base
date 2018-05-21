@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>结算</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="wrap div_bgcolor" *ngFor="let x of data">
+        <div class="item_tit">
+            <p class="p1 th_gray">{{x.stockName }}&nbsp;<em>{{x.contractCode }}</em></p>
+            <p class="p2 p3 th_gray">单号：{{x.detailId }}</p>
+        </div>
+        <table class="_tab">
+            <tr>
+                <td [ngClass]="{'font_red': x.positionFlag=='买涨', 'font_green':x.positionFlag!='买涨'}">{{x.positionFlag }}</td>
+            </tr>
+            <tr>
+                <td>止盈 {{x.profitPrice }}</td>
+                <td>买入价 {{x.openPrice }}</td>
+            </tr>
+            <tr>
+                <td>止损 {{x.stopPrice }}</td>
+                <!-- <td>对手价 43.02</td> -->
+            </tr>
+
+        </table>
+        <div [ngClass]="{'hideit':!x.hideit,'willhide':true}">
+            <table>
+                <tr>
+                    <td>报单类型</td>
+                    <td>{{x.priceName }}</td>
+                </tr>
+                <tr>
+                    <td>手续费</td>
+                    <td>{{x.totalFee }}</td>
+                </tr>
+                <tr>
+                    <td>结算类型</td>
+                    <td>{{x.closeType }}</td>
+                </tr>
+                <tr>
+                    <td>报单时间</td>
+                    <td>{{x.orderTime}}</td>
+                </tr>
+                <tr>
+                    <td>结算时间</td>
+                    <td>{{x.dateTime }}</td>
+                </tr>
+                <!-- <tr>
+                    <td>2017-06-23 16:33:07</td>
+                    <td>平仓1手 -70</td>
+                </tr> -->
+            </table>
+        </div>
+        <div class="item_tit3" tappable (click)="hideShow(x)">
+            <p *ngIf="x.hideit">收起</p>
+            <p *ngIf="!x.hideit">查看详情</p>
+        </div>
+        <button ion-button class="but" disabled>结算<br>成功</button>
+    </div>
+    <div *ngIf="noData">
+        <img style="width:20%;margin-left:40%;margin-top:35%;" src="assets/images/my/details_nodate@{{dpr}}x.png">
+        <p style="text-align:center;font-family: PingFangSC-Regular;margin-top:1.25rem;font-size: 1.25rem;color: #CCCCCC;letter-spacing: 2px;">暂无数据</p>
+    </div>
+</ion-content>

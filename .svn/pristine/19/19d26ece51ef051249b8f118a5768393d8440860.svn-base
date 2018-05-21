@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-navbar>
+        <ion-segment [(ngModel)]="futures" (ionChange)="segmentChanged()" id="seg_special">
+            <ion-segment-button value="International">
+                国际期货
+            </ion-segment-button>
+            <ion-segment-button value="domestic">
+                国内期货
+            </ion-segment-button>
+        </ion-segment>
+    </ion-navbar>
+</ion-header>
+<ion-content (ionScroll)="scrollHandler($event)">
+    <div class="hold_item div_bgcolor" *ngIf="globalData.showModule">
+        <div class="hold_tit" *ngIf="holdData.length">
+            <div class="hold_nt"></div>
+            <em class="em0 th_light">持仓</em>
+            <p [ngClass]="{'font_red': globalData.totalFloatPrice>=0, 'font_green':globalData.totalFloatPrice<0}">浮动总盈亏{{globalData.totalFloatPrice|number: '1.0-2'}}元</p>
+            <em class="em1 th_red" tappable [navPush]="orderPage">查看持仓</em>
+        </div>
+        <table *ngFor="let x of holdData">
+            <tr class="div_bottom">
+                <td>持仓合约</td>
+                <td>持仓</td>
+                <td>方向</td>
+                <td>浮动盈亏</td>
+            </tr>
+            <tr class="div_bottom">
+                <td><strong class="th_light">{{x.stockName }}</strong><br><em>{{x.stockCode}}</em></td>
+                <td class="th_light">{{x.currentAmount}}</td>
+                <td [ngClass]="{'font_red': x.positionFlag=='买涨', 'font_green':x.positionFlag!='买涨'}"><span *ngIf="x.positionFlag=='买涨'">多</span><span *ngIf="x.positionFlag!='买涨'">空</span></td>
+                <td [ngClass]="{'font_red': x.floatPrice>=0, 'font_green':x.floatPrice<0}">{{x.floatPrice|number: '1.0-2'}}<em *ngIf='x.floatPrice||x.floatPrice==0' style='font-style: normal;'>元</em><em *ngIf='!x.floatPrice&&x.floatPrice!=0' style='font-style: normal;'>/&nbsp;&nbsp;&nbsp;&nbsp;</em></td>
+            </tr>
+        </table>
+    </div>
+    <div class="nt"></div>
+    <div class="description div_bgcolor div_bottom">
+        <em class="th_gray">合约</em>
+        <em>最新价</em>
+        <em>涨跌幅</em>
+    </div>
+    <div [ngSwitch]="futures">
+        <div *ngSwitchCase="'International'">
+            <button class="self_item div_bgcolor div_bottom" *ngFor="let x of outerdata" tappable (click)="goNextPage(x,0)">
+                <strong class="str_title th_light">{{x.futuresName}}</strong>
+                <strong class="str_code">{{x.futuresCode}}</strong>
+                <em *ngIf="x.rating" [ngClass]="{'font_red': x.rating>=0, 'font_green': x.rating<0}">{{x.nowPrice|number: '1.0-2'}}</em>
+                <section [ngClass]="{'bg_red': x.rating>=0, 'bg_green': x.rating<0,'bg_gray':!x.isTradeTime}">
+                    <p *ngIf="x.isTradeTime" >{{x.rating|number: '1.0-2'}}%</p>
+                    <p *ngIf="!x.isTradeTime" style="font-size:1rem;">非交易时间</p>
+                </section>
+            </button>
+        </div>
+        <div *ngSwitchCase="'domestic'">
+            <button class="self_item div_bgcolor div_bottom" *ngFor="let y of innerdata" tappable (click)="goNextPage(y,1)">
+                <strong class="str_title th_light">{{y.futuresName}}</strong>
+                <strong class="str_code">{{y.futuresCode}}</strong>
+                <em *ngIf="y.rating" [ngClass]="{'font_red': y.rating>=0, 'font_green': y.rating<0}">{{y.nowPrice|number: '1.0-2'}}</em>
+                <section [ngClass]="{'bg_red': y.rating>=0, 'bg_green': y.rating<0,'bg_gray':!y.isTradeTime}">
+                    <p *ngIf="y.isTradeTime" >{{y.rating|number: '1.0-2'}}%</p>
+                    <p *ngIf="!y.isTradeTime" style="font-size:1rem;">非交易时间</p>
+                </section>
+            </button>
+        </div>
+    </div>
+</ion-content>

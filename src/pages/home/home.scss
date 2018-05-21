@@ -1,0 +1,176 @@
+page-home {
+    .font_red {
+        color: #DF3F43!important;
+    }
+    .font_green {
+        color: #19B03F!important;
+    }
+    em {
+        font-style: normal;
+    }
+    .head_but {
+        margin: 0;
+        position: absolute;
+        right: 1.25rem;
+        bottom: 0;
+        img {
+            height: 1.4rem;
+        }
+        p {
+            font-family: PingFangSC-Regular;
+            font-size: 1.4rem;
+            letter-spacing: 1.87px;
+        }
+    }
+    .home_banner {
+        width: 100%;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .home_tip {
+        display: none;
+        width: 100%;
+        height: 2rem;
+        padding: 0 0.5rem;
+        table {
+            width: 100%;
+            height: 100%;
+            padding: 0 1.2rem;
+            td {
+                font-family: PingFangSC-Regular;
+                font-size: 1rem;
+                letter-spacing: 2px;
+                line-height: 2rem;
+                text-align: center;
+            }
+            td:nth-child(1) {
+                padding-right: 3px;
+            }
+            em {
+                color: #DF3F43;
+            }
+        }
+    }
+    .home_nav {
+        width: 100%;
+        height: 6.75rem;
+        padding: 0 0.5rem;
+        display: flex;
+        &>button {
+            flex: 1;
+            height: 100%;
+            text-align: center;
+            img {
+                height: 3.75rem;
+                width: 3.75rem;
+                margin-top: 5px;
+            }
+            p {
+                font-family: PingFangSC-Regular;
+                font-size: 1.2rem;
+                letter-spacing: 2px;
+            }
+        }
+    }
+    .home_subtitle {
+        width: 100%;
+        height: 2.4rem;
+        position: relative;
+        text-align: center;
+        .nt {
+            display: block;
+            position: absolute;
+            width: 10%;
+            background: #5e5d5d;
+            height: 1px;
+            border: none;
+            top: 1.2rem;
+        }
+        .nt:nth-child(1) {
+            left: 21%;
+        }
+        .nt:nth-child(2) {
+            right: 21%;
+        }
+        p {
+            font-family: PingFangSC-Regular;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            line-height: 2.4rem;
+        }
+    }
+    .home_contitle {
+        width: 100%;
+        height: 3rem;
+        text-align: left;
+        padding-left: 0.5rem;
+        p {
+            font-family: PingFangSC-Regular;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            line-height: 3rem;
+        }
+    }
+    .home_cont {
+        width: 100%;
+        height: 4.5rem;
+        display: flex;
+        padding: 0 0.5rem;
+        &>div:nth-child(1) {
+            width: 4.5rem;
+            height: 4.5rem;
+            text-align: center;
+            img {
+                width: 2.915rem;
+                height: 2.915rem;
+                position: relative;
+                top: 5px;
+            }
+        }
+        &>div:nth-child(2) {
+            width: 100%;
+            table {
+                width: 100%;
+                height: 100;
+                tr {
+                    height: 1.8rem;
+                    td:nth-child(1) {
+                        text-align: left;
+                    }
+                    td:nth-child(2) {
+                        text-align: right;
+                    }
+                    td {
+                        font-family: PingFangSC-Regular;
+                        font-size: 1rem;
+                        letter-spacing: 2px;
+                        line-height: 1.8rem;
+                    }
+                }
+                tr:nth-child(1) {
+                    td:nth-child(1) {
+                        font-family: PingFangSC-Regular;
+                        font-size: 1.25rem;
+                        letter-spacing: 2px;
+                    }
+                    td {
+                        padding-top: 8px;
+                    }
+                }
+            }
+        }
+    }
+    .home_foottip {
+        width: 100%;
+        text-align: center;
+        padding: 1.25rem 0;
+        p {
+            font-family: PingFangSC-Regular;
+            font-size: 1rem;
+            letter-spacing: 1.67px;
+            line-height: 1.6rem;
+        }
+    }
+}

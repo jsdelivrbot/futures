@@ -1,0 +1,18 @@
+page-customer-service {
+    .item-ios {
+        border-bottom: none;
+        .item-inner {
+            border-bottom: none!important;
+        }
+        .cs_icon {
+            width: 1.67rem;
+            height: 1.67rem;
+        }
+        .cs_note {
+            font-family: PingFangSC-Regular;
+            font-size: 1rem;
+            color: #999999;
+            letter-spacing: 1.6px;
+        }
+    }
+}

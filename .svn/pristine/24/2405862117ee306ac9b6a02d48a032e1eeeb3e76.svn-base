@@ -1,0 +1,70 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-ionic-webview": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-clipboard": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-app-version": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-appminimize": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "cordova-plugin-file-opener2": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "com.midukeji.Origin"
+        }
+    }
+}

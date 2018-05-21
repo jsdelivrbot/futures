@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            客服中心
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <a target="_blank" ion-item href="http://wpa.qq.com/msgrd?v=3&uin=108964136&site=qq&menu=yes">
+        <img class="cs_icon" src="assets/images/service/service_icon_online@{{dpr}}x.png" item-start>
+        <ion-label>在线客服</ion-label>
+    </a>
+    <a ion-item href="tel:18698582200">
+        <img class="cs_icon" src="assets/images/service/service_icon_phone@{{dpr}}x.png" item-start>
+        <ion-label>客服电话</ion-label>
+        <ion-note item-end class="cs_note">工作日9:00-22:00</ion-note>
+    </a>
+</ion-content>

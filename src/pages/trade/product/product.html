@@ -1,0 +1,149 @@
+<ion-header *ngIf="!rotated">
+    <ion-navbar id="spec_navbar">
+        <ion-title>{{codeName}}</ion-title>
+        <!-- <ion-buttons end>
+            <button ion-button icon-only (click)="goNextPage('攻略')">
+        <em style="font-size:1.25rem;font-style:normal">攻略&nbsp;&nbsp;&nbsp;&nbsp;</em>
+      </button>
+        </ion-buttons> -->
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="pro_head div_bgcolor">
+        <strong class="p1 th_light">{{codeName}}</strong>
+        <em class="p2">{{code}}{{contract}}</em>
+        <strong class="p3" [ngClass]="{'font_red': quote>=0, 'font_green': quote<0}">{{socketdata.nowPrice|number: '1.0-2'}}</strong>
+        <em class="p4" [ngClass]="{'font_red': quote>=0, 'font_green': quote<0}">{{quote|number: '1.0-2'}}</em>
+        <em class="p5" [ngClass]="{'font_red': quote>=0, 'font_green': quote<0}">{{quoteRate|number: '1.0-2'}}%</em>
+    </div>
+    <table class="table1 div_bgcolor">
+        <tr>
+            <td class="th_light">最高&nbsp;&nbsp;<em [ngClass]="{'font_red': socketdata.highPrice-socketdata.preClosePrice>=0, 'font_green': socketdata.highPrice-socketdata.preClosePrice<0}">{{socketdata.highPrice|number: '1.0-2'}}</em></td>
+            <td class="th_light">今开&nbsp;&nbsp;<em [ngClass]="{'font_red': socketdata.openPrice-socketdata.preClosePrice>=0, 'font_green': socketdata.openPrice-socketdata.preClosePrice<0}">{{socketdata.openPrice|number: '1.0-2'}}</em></td>
+            <td class="th_light">持仓&nbsp;&nbsp;{{socketdata.openInterest}}</td>
+        </tr>
+        <tr>
+            <td class="th_light">最低&nbsp;&nbsp;<em [ngClass]="{'font_red': socketdata.floorPrice-socketdata.preClosePrice>=0, 'font_green': socketdata.floorPrice-socketdata.preClosePrice<0}">{{socketdata.floorPrice|number: '1.0-2'}}</em></td>
+            <td class="th_light">昨收&nbsp;&nbsp;{{socketdata.preClosePrice|number: '1.0-2'}}</td>
+            <td class="th_light">成交&nbsp;&nbsp;{{socketdata.totalVolume}}</td>
+        </tr>
+    </table>
+    <div class="seg">
+        <ion-segment [(ngModel)]="tab" (ionChange)="segmentChanged($event)">
+            <ion-segment-button value="k1">
+                分时
+            </ion-segment-button>
+            <ion-segment-button value="k2">
+                分K线
+            </ion-segment-button>
+            <ion-segment-button value="k3">
+                5分钟
+            </ion-segment-button>
+            <ion-segment-button value="k4">
+                15分钟
+            </ion-segment-button>
+            <ion-segment-button value="k5">
+                1小时
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+    <div class="candle_wrap div_bgcolor" [ngClass]="{'rotated_wrap':rotated}">
+        <div *ngIf="rotated" class="rotated_tit div_bgcolor">
+            <div>
+                <table>
+                    <tr>
+                        <td><strong class="th_light">{{codeName}}</strong>&nbsp;<em style="font-style:normal;" [ngClass]="{'font_red': quoteRate>=0, 'font_green': quoteRate<0}">{{socketdata.nowPrice|number: '1.0-2'}}</em></td>
+                    </tr>
+                    <tr>
+                        <td [ngClass]="{'font_red': quoteRate>=0, 'font_green': quoteRate<0}">{{quote|number: '1.0-2'}}&nbsp;{{quoteRate|number: '1.0-2'}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td class="th_light">最高&nbsp;&nbsp;<em [ngClass]="{'font_red': socketdata.highPrice-socketdata.preClosePrice>=0, 'font_green': socketdata.highPrice-socketdata.preClosePrice<0}">{{socketdata.highPrice|number: '1.0-2'}}</em></td>
+                        <td class="th_light">今开&nbsp;&nbsp;<em [ngClass]="{'font_red': socketdata.openPrice-socketdata.preClosePrice>=0, 'font_green': socketdata.openPrice-socketdata.preClosePrice<0}">{{socketdata.openPrice|number: '1.0-2'}}</em></td>
+                        <td class="th_light">持仓&nbsp;&nbsp;{{socketdata.openInterest}}</td>
+                    </tr>
+                    <tr>
+                        <td class="th_light">最低&nbsp;&nbsp;<em [ngClass]="{'font_red': socketdata.floorPrice-socketdata.preClosePrice>=0, 'font_green': socketdata.floorPrice-socketdata.preClosePrice<0}">{{socketdata.floorPrice|number: '1.0-2'}}</em></td>
+                        <td class="th_light">昨收&nbsp;&nbsp;{{socketdata.preClosePrice|number: '1.0-2'}}</td>
+                        <td class="th_light">成交&nbsp;&nbsp;{{socketdata.volume}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="seg" *ngIf="rotated">
+            <ion-segment [(ngModel)]="tab" (ionChange)="segmentChanged($event)">
+                <ion-segment-button value="k1">
+                    分时
+                </ion-segment-button>
+                <ion-segment-button value="k2">
+                    分K线
+                </ion-segment-button>
+                <ion-segment-button value="k3">
+                    5分钟
+                </ion-segment-button>
+                <ion-segment-button value="k4">
+                    15分钟
+                </ion-segment-button>
+                <ion-segment-button value="k5">
+                    1小时
+                </ion-segment-button>
+            </ion-segment>
+        </div>
+        <div class="candle rotated_chart" tappable (click)="rotate()" (swipeRight)="swipeEvent($event)">
+            <div id="myChart"></div>
+            <!-- <div id="myChart_land" class="zIndex" [ngClass]="{'changeZindex':rotated}"></div> -->
+            <img class="rotate_icon" src="assets/images/trade/price_btn_enlarge@{{dpr}}x.png" tappable (click)="rotate_ctro()" *ngIf="!rotated&&isMobile">
+            <img class="rotate_icon" src="assets/images/trade/price_btn_shrink@{{dpr}}x.png" tappable (click)="rotate_ctro()" *ngIf="rotated&&isMobile">
+        </div>
+    </div>
+    <!-- <div class="item1">
+        <p class="th_light">余额：0.00</p>
+        <button ion-button outline [navPush]="recharge">充值</button>
+    </div> -->
+    <div class="item2">
+        <div>
+            <p>
+                卖价&nbsp;&nbsp;<span style="color:#19B03F">{{socketdata.askPrice1|number: '1.0-2'}}</span>
+            </p>
+        </div>
+        <div>
+            <p>
+                {{socketdata.askVolume1}}手
+            </p>
+        </div>
+        <div>
+            <p>
+                买价&nbsp;&nbsp;<span style="color:#DF3F43">{{socketdata.bidPrice1|number: '1.0-2'}}</span>
+            </p>
+        </div>
+        <div>
+            <p>
+                {{socketdata. bidVolume1}}手
+            </p>
+        </div>
+    </div>
+</ion-content>
+<ion-footer *ngIf="!rotated">
+    <div class="_footer" *ngIf="globalData.showModule">
+        <div tappable>
+            <button ion-button class="div_bgcolor th_light" (click)="goNextPage('持仓')">查看持仓</button>
+        </div>
+        <div tappable>
+            <button ion-button [disabled]="!isTradeTime" (click)="goNextPage('买涨')">
+        <p *ngIf="isTradeTime">买涨</p>
+        <p *ngIf="!isTradeTime">非交易时间</p>
+      </button>
+        </div>
+        <!-- [disabled]="!isTradeTime"  -->
+        <div tappable>
+            <button ion-button color='secondary' [disabled]="!isTradeTime" (click)="goNextPage('买跌')">
+        <p *ngIf="isTradeTime">买跌</p>
+        <p *ngIf="!isTradeTime">非交易时间</p>
+      </button>
+        </div>
+    </div>
+</ion-footer>

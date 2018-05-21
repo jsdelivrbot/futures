@@ -1,0 +1,76 @@
+page-purchase {
+    .scroll-content {
+        ._active {
+            background: #DF3F43!important;
+            color: white!important;
+        }
+    }
+    em {
+        font-style: normal;
+        font-family: PingFangSC-Regular;
+        font-size: 1.25rem;
+        color: #999999;
+        letter-spacing: 2px;
+    }
+    .bot_p {
+        font-family: PingFangSC-Regular;
+        font-size: 1rem;
+        color: #999999;
+        letter-spacing: 2px;
+        padding: 1.25rem 1.42rem;
+    }
+    .mid_item {
+        margin: 0.83rem 0;
+    }
+    .item-ios {
+        border-bottom: 1px solid #c8c7cc;
+    }
+    .item-inner {
+        border-bottom: none!important;
+    }
+    ion-label {
+        font-family: PingFangSC-Regular!important;
+        font-size: 1.25rem!important;
+        letter-spacing: 2px!important;
+    }
+    .note-ios {
+        font-family: PingFangSC-Regular;
+        font-size: 1.25rem;
+        color: #999999;
+        letter-spacing: 2px;
+    }
+    .squar_but {
+        margin: 0!important;
+        border-radius: 0!important;
+        margin-left: 0.71rem!important;
+    }
+    ._footer {
+        display: flex;
+        width: 100%;
+        &>div {
+            .button-ios {
+                width: 100%!important;
+                height: 100%!important;
+                margin: 0!important;
+                border-radius: 0!important;
+            }
+        }
+        &>div:nth-child(1) {
+            flex: 2;
+            height: 4rem;
+        }
+        &>div:nth-child(2) {
+            flex: 1;
+            height: 4rem;
+        }
+    }
+    .modal_mock {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.50);
+        z-index: 100;
+    }
+}

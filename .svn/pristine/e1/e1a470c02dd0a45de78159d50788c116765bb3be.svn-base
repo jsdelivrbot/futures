@@ -1,0 +1,112 @@
+    /***********白天主题色************/
+    /**********header背景色**********/
+    
+    .toolbar-background-ios {
+        background: #DF3F43!important;
+    }
+    /**********tabbar颜色**********/
+    
+    .tabs-ios .tabbar {
+        background: #333333!important;
+    }
+    
+    #tabs_special .tabbar {
+        background: white!important;
+    }
+    /**********head-title**********/
+    
+    .toolbar-title-ios {
+        color: white!important;
+    }
+    /***********返回键颜色************/
+    
+    .bar-button-default-ios {
+        color: #FFFFFF!important;
+    }
+    /*************item颜色*************/
+    
+    .item-ios {
+        background: white!important;
+        color: black!important;
+        border-bottom: 1px solid rgba(204, 204, 204, 0.6)!important;
+    }
+    /**********border-bottom**********/
+    
+    .div_bottom {
+        border-bottom: 1px solid rgba(204, 204, 204, 0.6)!important;
+    }
+    
+    .segment-ios .segment-button.segment-activated {
+        background: #DF3F43!important;
+    }
+    
+    .segment-ios .segment-button {
+        border: 1px solid #DF3F43!important;
+        background: white!important;
+    }
+    
+    #seg_special .segment-button.segment-activated {
+        background: white!important;
+    }
+    
+    #seg_special .segment-button {
+        border: 1px solid white!important;
+        background: #DF3F43!important;
+    }
+    
+    .label-ios-dark,
+    .item-input .label-ios-dark {
+        color: black!important;
+    }
+    
+    .item-ios.item-block .item-inner {
+        border-bottom: none!important;
+    }
+    /**********div背景颜色**********/
+    
+    .div_bgcolor {
+        background: white!important;
+    }
+    
+    .div_redbg {
+        background: #DF3F43!important;
+    }
+    
+    .list-ios>.item-block:first-child {
+        border-top: none!important;
+    }
+    /**********content背景色*******/
+    
+    .scroll-content {
+        background: #F4F4F4;
+    }
+    /*******滚动content背景色********/
+    
+    .content-ios {
+        background: #F4F4F4!important;
+    }
+    /**********文字颜色模式1**********/
+    
+    .th_light {
+        color: black !important;
+    }
+    /**********文字颜色模式2**********/
+    
+    .th_second {
+        color: white!important;
+    }
+    /**********文字颜色模式3**********/
+    
+    .th_red {
+        color: #DF3F43!important;
+    }
+    /**********文字颜色模式4**********/
+    
+    .th_blue {
+        color: blue!important;
+    }
+    /**********文字颜色模式5**********/
+    
+    .th_gray {
+        color: #999999!important;
+    }

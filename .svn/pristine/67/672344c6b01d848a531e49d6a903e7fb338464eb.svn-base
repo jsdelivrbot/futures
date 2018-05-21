@@ -1,0 +1,65 @@
+import { Component } from '@angular/core';
+import { NavController, NavParams,AlertController } from 'ionic-angular';
+import { myService } from "../myService";
+import { GlobalData } from "../../../providers/GlobalData";
+import {WechatPlugin} from '../../../providers/WechatPlugin';
+@Component({
+	selector: 'page-recharge',
+	templateUrl: 'recharge.html',
+})
+export class RechargePage {
+	passwordForm: any;
+	private pay_type:string='kuaijie';
+	private moneyamount:number=100;
+	private tradeType:number=3;
+	//屏幕分辨比
+	public dpr:string=sessionStorage.dpr;
+	constructor(
+		private navCtrl: NavController, 
+		private navParams: NavParams,
+		private alertCtrl: AlertController,
+		private myservice: myService,
+		private globaldata: GlobalData,
+	) {
+	}
+	ionViewDidLoad() {
+		// Wechat.isInstalled(function (installed) {
+		// 	alert("Wechat installed: " + (installed ? "Yes" : "No"));
+		// }, function (reason) {
+		// 	alert("Failed: " + reason);
+		// });
+	}
+	//选择金额数值
+	moneyAmount(val){
+		this.moneyamount=val;
+	}
+	chooseType(){
+		console.log(this.pay_type)
+		switch(this.pay_type){
+			case 'zhifubao':
+				this.tradeType=1;
+				break;
+			case 'weixin':
+				this.tradeType=2;
+				break;
+			case 'kuaijie':
+				this.tradeType=3;
+				break;
+		}
+	}
+	//提交
+	sub(){
+		this.myservice.recharge(this.globaldata.userId,this.tradeType,'CNY',this.moneyamount)
+		.subscribe(res => {
+			console.log(res)
+			if(res.success=="true"){
+			}else{
+				this.alertCtrl.create({
+					title: res.errorMsg,
+					subTitle: '',
+					buttons: [{text: '确定'}]
+				  }).present();
+			}
+		})
+	}
+}

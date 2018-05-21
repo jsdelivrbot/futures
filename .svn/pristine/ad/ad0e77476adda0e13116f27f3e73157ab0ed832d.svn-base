@@ -1,0 +1,1 @@
+ionic generate component home-component-component

@@ -1,0 +1,10 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{title}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-tabs #subTabs selectedIndex="0" tabsPlacement="top" id="tabs_special">
+    <ion-tab [root]="tab1Root" tabTitle="持仓"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="委托"></ion-tab>
+    <ion-tab [root]="tab3Root" tabTitle="结算"></ion-tab>
+</ion-tabs>

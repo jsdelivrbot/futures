@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>充值</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="money_choose div_bgcolor">
+        <div tappable (click)="moneyAmount(100)" [ngClass]="{'active': moneyamount==100}">
+            <p>100</p>
+        </div>
+        <div tappable (click)="moneyAmount(300)" [ngClass]="{'active': moneyamount==300}">
+            <p>300</p>
+        </div>
+        <div tappable (click)="moneyAmount(500)" [ngClass]="{'active': moneyamount==500}">
+            <p>500</p>
+        </div>
+        <div tappable (click)="moneyAmount(1000)" [ngClass]="{'active': moneyamount==1000}">
+            <p>1000</p>
+        </div>
+        <div tappable (click)="moneyAmount(3000)" [ngClass]="{'active': moneyamount==3000}">
+            <p>3000</p>
+        </div>
+        <div tappable (click)="moneyAmount(5000)" [ngClass]="{'active': moneyamount==5000}">
+            <p>5000</p>
+        </div>
+        <div tappable (click)="moneyAmount(10000)" [ngClass]="{'active': moneyamount==10000}">
+            <p>10000</p>
+        </div>
+        <div tappable (click)="moneyAmount(30000)" [ngClass]="{'active': moneyamount==30000}">
+            <p>30000</p>
+        </div>
+        <div tappable (click)="moneyAmount(50000)" [ngClass]="{'active': moneyamount==50000}">
+            <p>50000</p>
+        </div>
+    </div>
+    <div class="money_pay">
+        <div class="pay_type div_bgcolor div_bottom">
+            <p class="th_light">充值方式:</p>
+        </div>
+        <ion-list radio-group [(ngModel)]="pay_type" (ionChange)="chooseType()">
+            <ion-item>
+                <img class="rc_icon" item-start src="assets/images/my/recharge_icon_alipay@{{dpr}}x.png">
+                <ion-label>支付宝</ion-label>
+                <ion-radio value="zhifubao"></ion-radio>
+            </ion-item>
+            <ion-item>
+                <img class="rc_icon" item-start src="assets/images/my/recharge_icon_wechat@{{dpr}}x.png">
+                <ion-label>微信</ion-label>
+                <ion-radio value="weixin"></ion-radio>
+            </ion-item>
+            <ion-item>
+                <img class="rc_icon" item-start src="assets/images/my/recharge_icon_fast@{{dpr}}x.png">
+                <ion-label>快捷</ion-label>
+                <ion-radio value="kuaijie"></ion-radio>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div class="money_type">
+        <ion-item>
+            充值金额：<em class="money_num">{{moneyamount}}</em>
+        </ion-item>
+        <ion-item>
+            充值币种：CNY
+        </ion-item>
+    </div>
+    <br>
+    <br>
+    <button ion-button block (click)="sub()" style="margin:0 4%;width:92%;" [disabled]="">提交订单</button>
+</ion-content>

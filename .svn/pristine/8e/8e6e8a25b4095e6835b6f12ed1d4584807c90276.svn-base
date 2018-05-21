@@ -1,0 +1,117 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            {{title}}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <!-- <div *ngIf="title=='交易时间'">
+        <h3>交易时间</h3>
+        <div class="nt"></div>
+        <p class="sub_title">热门品种</p>
+        <p class="cont">香港恒生指数（HSI）：</p>
+        <p class="cont">上午9：15—12：00 下午1：00—4：30</p>
+    </div>
+    <div *ngIf="title=='充值和提现'">
+        <h3>交易时间</h3>
+        <div class="nt"></div>
+        <p class="sub_title">热门品种</p>
+        <p class="cont">香港恒生指数（HSI）：</p>
+        <p class="cont">上午9：15—12：00 下午1：00—4：30</p>
+    </div>
+    <div *ngIf="title=='手续费的收取'">
+        <h3>交易时间</h3>
+        <div class="nt"></div>
+        <p class="sub_title">热门品种</p>
+        <p class="cont">香港恒生指数（HSI）：</p>
+        <p class="cont">上午9：15—12：00 下午1：00—4：30</p>
+    </div>
+    <div *ngIf="title=='买涨买跌'">
+        <h3>什么是买涨买跌</h3>
+        <div class="nt"></div>
+        <p class="sub_title">买涨</p>
+        <p class="cont">也称为做多或多头。指当预期产品的价格会上涨时， 可以下单买涨。在价格上涨时卖出，就能获利。
+        </p>
+        <p class="sub_title">买跌</p>
+        <p class="cont">也称为做空或空头。指当预期产品的价格会下跌时， 可以下单买跌，在价格下跌时卖出，就能获利。
+        </p>
+    </div>
+    <div *ngIf="title=='建仓、持仓、平仓、爆仓'">
+        <h3>什么是建仓、平仓、持仓、爆仓</h3>
+        <div class="nt"></div>
+        <p class="sub_title">建仓</p>
+        <p class="cont">一般在交易中分为两种，一种是看涨行情做多头(买方)，另一种是看跌行情做空头(卖方)，但无论是做多还是做空，只要下单买卖就称为建仓或开仓。</p>
+        <p class="sub_title">平仓</p>
+        <p class="cont">是指期货交易者买入或卖出其所持期货合约的品种、数量以及交割月份相同但交易相反的期货合约，结清期货交易的行为称为平仓。</p>
+        <p class="sub_title">持仓</p>
+        <p class="cont">在实物交割到期之前，期货投资者可以根据市场行情和个人意愿，自愿的买入或卖出期货合约。</p>
+        <p class="sub_title">爆仓</p>
+        <p class="cont">指投资者账户权益为负数。换句话说投资者不仅赔光了全部保证金而且还倒欠期货经纪公司的债务。由于我国期货市场制度的不断完善以及期货交易实行逐日清算和强制平仓制度，一般情况爆仓是不会发生的。</p>
+    </div>
+    <div *ngIf="title=='止盈止损'">
+        <h3>什么是止盈止损</h3>
+        <div class="nt"></div>
+        <p class="sub_title">止盈</p>
+        <p class="cont">是指当盈利达到心理价位及时平仓的行为叫做止盈。止盈的目的是为了保护投资者的盈利，帮助投资者的权益落袋为实。</p>
+        <p class="sub_title">止损</p>
+        <p class="cont">是指亏损时及时平仓的行为叫做止损。止损的目的是为了将投资者出现的亏损控制在最小的范围内。</p>
+    </div>
+    <div *ngIf="title=='期货的好处'">
+        <h3>投资期货有哪些好处</h3>
+        <div class="nt"></div>
+        <p class="sub_title">1、市场眼中的期货</p>
+        <p class="cont">期货、股票、债券以及基金作为全球四大投资品种，是全球投资机构必备的资产配置。</p>
+        <div class="but_wrap">
+            <div>
+                <p>期货</p>
+            </div>
+            <div>
+                <p>股票</p>
+            </div>
+            <div>
+                <p>债券</p>
+            </div>
+            <div>
+                <p>基金</p>
+            </div>
+        </div>
+        <p class="sub_title">2、投资人眼中的期货</p>
+        <p class="cont">赚钱机会多&nbsp;&nbsp;&nbsp;&nbsp;走势易把握&nbsp;&nbsp;&nbsp;&nbsp;风险可控</p>
+        <p class="sub_title">3、大众眼中的期货</p>
+        <p class="cont">可靠&nbsp;&nbsp;&nbsp;&nbsp;值钱&nbsp;&nbsp;&nbsp;&nbsp;有升值空间</p>
+        <p class="sub_title">4、双向交易 涨跌都能赚</p>
+    </div>
+    <div *ngIf="title=='影响因素'">
+        <h3>影响期货价格的重要因素有哪些</h3>
+        <div class="nt"></div>
+        <p class="sub_title">1、时局动荡</p>
+        <p class="cont">处于战争或处于市局动荡区，当地货币可能由于通货膨胀而贬值，而期货不收当地社会制度、经济环境的影响，这种情况会大大增加对期货的需求，从而促进期货价格上涨。如：2001年9月11日在美国发生的恐怖袭击事件，都曾使黄金价格短期内急剧上涨。</p>
+        <p class="sub_title">2、通货膨胀</p>
+        <p class="cont">西方主要国家的通货膨胀率越高，人们对期货的需求就越强烈，期货价格也跟着上涨其中美国通货膨胀看率最值得关注。</p>
+        <p class="sub_title">3、外资赤字</p>
+        <p class="cont">美国赤字增大会伤害到债权与债务国的关系，各国都会为维持本国经济不受伤害而大量储备黄金，引起贵金属的价格上涨。</p>
+        <p class="sub_title">4、股市行情</p>
+        <p class="cont">如果大家普遍对经济前景看好，则资金大量流入股票市场。</p>
+    </div>
+    <div *ngIf="title=='K线快速入门'">
+        <h3>1分钟看懂K线图</h3>
+        <div class="nt"></div>
+        <p class="cont">K线图的盈利玄机期货盈利并不难，简单的K线蕴含不 少秘密，只要了解其中的门道就能在市场中运筹帷幄！
+        </p>
+        <img src="assets/images/novice/school_btn_4_img_1@{{dpr}}x.png" class="nd_img">
+        <img src="assets/images/novice/school_btn_4_img_2@{{dpr}}x.png" class="nd_img">
+        <h3>标准K线图形解说</h3>
+        <img src="assets/images/novice/school_btn_4_img_3@{{dpr}}x.png" class="nd_img">
+        <img src="assets/images/novice/school_btn_4_img_4@{{dpr}}x.png" class="nd_img">
+        <img src="assets/images/novice/school_btn_4_img_5@{{dpr}}x.png" class="nd_img">
+        <img src="assets/images/novice/school_btn_4_img_6@{{dpr}}x.png" class="nd_img">
+        <img src="assets/images/novice/school_btn_4_img_7@{{dpr}}x.png" class="nd_img">
+    </div> -->
+    <div>
+        <h3>{{data.title}}</h3>
+        <div class="nt"></div>
+        <div id="_html"></div>
+    </div>
+    <br>
+</ion-content>

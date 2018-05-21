@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>持仓</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="wrap div_bgcolor" *ngFor="let x of holdData;let i=index">
+        <div class="item_tit">
+            <p class="p1 th_gray">{{x.stockName }}&nbsp;<em>{{x.contractCode}}</em></p>
+            <p class="p2 p3 th_gray ">单号：{{x.detailId }}</p>
+        </div>
+        <div class="item_tit item_tit1">
+            <p class="p1" [ngClass]="{'font_red': x.positionFlag=='买涨', 'font_green':x.positionFlag!='买涨'}">{{x.positionFlag }}{{x.holdAmount }}手</p>
+            <p class="p2 p3 ">盈亏&nbsp;&nbsp;{{x.income }}</p>
+        </div>
+        <div class="item_tit item_tit1">
+            <p class="p1">止盈 {{x.profitPrice }}</p>
+            <p class="p2">买入价 {{x.openPrice}}</p>
+        </div>
+        <div class="item_tit item_tit1">
+            <p class="p1">止损 {{x.stopPrice }}</p>
+            <p class="p2">对手价 {{x.oppoPrice}}</p>
+        </div>
+        <table>
+            <tr>
+                <td>报单类型</td>
+                <td>{{x.priceName }}</td>
+            </tr>
+            <tr>
+                <td>手续费</td>
+                <td>{{x.totalFee }}</td>
+            </tr>
+            <tr>
+                <td>报单时间</td>
+                <td>{{x.dateTime }}</td>
+            </tr>
+        </table>
+        <div class="item3">
+            <p>*当本笔交易结算后，保证金与获利将统一转入资金账户</p>
+        </div>
+        <button ion-button class="but" [disabled]="!x.isTradeTime" (click)="ClosePosition(x,i)">平仓</button>
+    </div>
+    <div *ngIf="noData">
+        <img style="width:20%;margin-left:40%;margin-top:35%;" src="assets/images/my/details_nodate@{{dpr}}x.png">
+        <p style="text-align:center;font-family: PingFangSC-Regular;margin-top:1.25rem;font-size: 1.25rem;color: #CCCCCC;letter-spacing: 2px;">暂无数据</p>
+    </div>
+</ion-content>
+
+<ion-footer>
+    <button ion-button color='light' class="_but">浮动盈亏：{{globalData.totalFloatPrice}}</button>
+</ion-footer>

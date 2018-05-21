@@ -1,0 +1,19 @@
+page-withdraw {
+    .item-ios {
+        padding-left: 0!important;
+    }
+    .wd_p {
+        text-align: center;
+        font-family: PingFangSC-Regular;
+        font-size: 1rem;
+        color: #999999;
+        letter-spacing: 2px;
+    }
+    .draw_type {
+        input[disabled],
+        input:disabled {
+            opacity: 1;
+            color: #999999;
+        }
+    }
+}

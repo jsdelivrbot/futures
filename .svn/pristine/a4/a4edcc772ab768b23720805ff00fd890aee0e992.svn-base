@@ -1,0 +1,79 @@
+<!--
+  Generated template for the MyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>
+            {{globalData.nickname||'个人中心'}}
+        </ion-title>
+        <!-- <ion-buttons end *ngIf="globalData.account">
+            <button ion-button style="color:white;font-size:1rem;">
+                退出
+            </button>
+        </ion-buttons> -->
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <div class="my_top div_redbg" *ngIf="globalData.showModule">
+        <p class="th_second">账户余额</p>
+        <p class="th_second">{{globalData.funds|number: '1.0-2'}}</p>
+    </div>
+    <div class="my_nav div_bgcolor" *ngIf="globalData.showModule">
+        <button class="my_but1" ion-button (click)="goNextPage('recharge')">充值</button>
+        <button class="my_but2" ion-button (click)="goNextPage('withdraw')">提现</button>
+    </div>
+    <button *ngIf="globalData.showModule" ion-item no-lines class="my_item" (click)="goNextPage('moneydetail')">
+        <ion-avatar item-start>
+            <img src="assets/images/my/my_icon_details@{{dpr}}x.png">
+        </ion-avatar>
+        资金明细
+    </button>
+    <button *ngIf="globalData.showModule" ion-item no-lines class="my_item" style="margin-top:0;" (click)="goNextPage('order')">
+        <ion-avatar item-start>
+            <img src="assets/images/my/my_icon_position@{{dpr}}x.png">
+        </ion-avatar>
+        持仓
+    </button>
+    <button ion-item no-lines class="my_item" (click)="goNextPage('selfinfo')">
+        <ion-avatar item-start>
+            <img src="assets/images/my/my_icon_information@{{dpr}}x.png">
+        </ion-avatar>
+        个人信息
+    </button>
+    <button *ngIf="globalData.showModule" ion-item no-lines class="my_item" style="margin-top:0;" (click)="goNextPage('promotion')">
+        <ion-avatar item-start>
+            <img src="assets/images/my/my_icon_promotion@{{dpr}}x.png">
+        </ion-avatar>
+        推广赚钱
+    </button>
+    <button *ngIf="globalData.showModule" ion-item no-lines class="my_item" (click)="goNextPage('coupon')">
+        <ion-avatar item-start>
+            <img src="assets/images/my/my_icon_coupon@{{dpr}}x.png">
+        </ion-avatar>
+        优惠券
+    </button>
+    <button *ngIf="globalData.showModule" ion-item no-lines class="my_item" style="margin-top:0;" (click)="goNextPage('riskwarn')">
+        <ion-avatar item-start>
+            <img src="assets/images/my/my_icon_prompt@{{dpr}}x.png">
+        </ion-avatar>
+        风险提示
+    </button>
+    <ion-item class="my_item">
+        <ion-avatar item-start>
+            <img src="assets/images/my/my_icon_night@{{dpr}}x.png">
+        </ion-avatar>
+        <ion-label>夜间模式</ion-label>
+        <ion-toggle [(ngModel)]="nightState" (ngModelChange)="setDayState()" color="danger"></ion-toggle>
+    </ion-item>
+    <br>
+    <br>
+    <button ion-button block style="margin:0 auto;width:92%;height:3.33rem;" *ngIf="globalData.account" (click)="logout()">退出登录</button>
+    <br>
+    <br>
+</ion-content>

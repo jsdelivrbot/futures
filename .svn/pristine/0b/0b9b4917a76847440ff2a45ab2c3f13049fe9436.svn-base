@@ -1,0 +1,51 @@
+{
+  "_from": "@ionic-native/clipboard",
+  "_id": "@ionic-native/clipboard@4.5.3",
+  "_inBundle": false,
+  "_integrity": "sha1-+QPmnd5tYH+PyGTzz1mIDTTmANc=",
+  "_location": "/@ionic-native/clipboard",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@ionic-native/clipboard",
+    "name": "@ionic-native/clipboard",
+    "escapedName": "@ionic-native%2fclipboard",
+    "scope": "@ionic-native",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/@ionic-native/clipboard/download/@ionic-native/clipboard-4.5.3.tgz",
+  "_shasum": "f903e69dde6d607f8fc864f3cf59880d34e600d7",
+  "_spec": "@ionic-native/clipboard",
+  "_where": "C:\\Users\\74274\\Desktop\\DDY",
+  "author": {
+    "name": "ionic"
+  },
+  "bugs": {
+    "url": "https://github.com/ionic-team/ionic-native/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Ionic Native - Native plugins for ionic apps",
+  "homepage": "https://github.com/ionic-team/ionic-native#readme",
+  "license": "MIT",
+  "module": "index.js",
+  "name": "@ionic-native/clipboard",
+  "peerDependencies": {
+    "@ionic-native/core": "^4.2.0",
+    "@angular/core": "*",
+    "rxjs": "^5.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/ionic-native.git"
+  },
+  "typings": "index.d.ts",
+  "version": "4.5.3"
+}

@@ -1,0 +1,82 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>注册</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="re_content">
+    <form [formGroup]="passwordForm" (ngSubmit)="register(passwordForm.value);$event.preventDefault();$event.stopPropagation();">
+        <div class="form_wrap">
+            <ion-item style="font-size:1.25rem;height:4.5rem;">
+                <ion-label color="dark">手机号码</ion-label>
+                <ion-input formControlName="account" placeholder="请输入手机号" type="tel"></ion-input>
+                <ion-icon *ngIf="passwordForm.controls.account.valid && passwordForm.controls.account.dirty" item-end name="ios-checkmark-circle" style="color:#51C332"></ion-icon>
+                <ion-icon *ngIf="!passwordForm.controls.account.valid && passwordForm.controls.account.dirty" item-end name="ios-close-circle" style="color:red"></ion-icon>
+            </ion-item>
+            <ion-item style="font-size:1.25rem;height:4.5rem;border-bottom: none;">
+                <ion-label color="dark">输入密码</ion-label>
+                <ion-input formControlName="password" placeholder="请输入8-20位包含数字和字母的密码" type="password"></ion-input>
+                <ion-icon *ngIf="passwordForm.controls.password.valid && passwordForm.controls.password.dirty" item-end name="ios-checkmark-circle" style="color:#51C332"></ion-icon>
+                <ion-icon *ngIf="!passwordForm.controls.password.valid && passwordForm.controls.password.dirty" item-end name="ios-close-circle" style="color:red"></ion-icon>
+            </ion-item>
+            <ion-item style="font-size:1.25rem;height:4.5rem;border-bottom: none;">
+                <ion-label color="dark">确认密码</ion-label>
+                <ion-input formControlName="confirmpassword" placeholder="请输入确认密码" type="password"></ion-input>
+                <ion-icon *ngIf="passwordForm.controls.confirmpassword.valid && passwordForm.controls.confirmpassword.dirty&&passwordForm.controls.password.value==passwordForm.controls.confirmpassword.value" item-end name="ios-checkmark-circle" style="color:#51C332"></ion-icon>
+                <ion-icon *ngIf="(!passwordForm.controls.confirmpassword.valid||passwordForm.controls.password.value!=passwordForm.controls.confirmpassword.value)&&passwordForm.controls.confirmpassword.dirty" item-end name="ios-close-circle" style="color:red"></ion-icon>
+            </ion-item>
+            <ion-item style="font-size:1.25rem;height:4.5rem;border-bottom: none;">
+                <ion-label color="dark">机构代码</ion-label>
+                <ion-input formControlName="assetunit" placeholder="请输入机构代码" type="number"></ion-input>
+                <ion-icon *ngIf="passwordForm.controls.assetunit.valid && passwordForm.controls.assetunit.dirty" item-end name="ios-checkmark-circle" style="color:#51C332"></ion-icon>
+                <ion-icon *ngIf="!passwordForm.controls.assetunit.valid && passwordForm.controls.assetunit.dirty" item-end name="ios-close-circle" style="color:red"></ion-icon>
+            </ion-item>
+            <ion-item style="font-size:1.25rem;height:4.5rem;border-bottom: none;">
+                <ion-label color="dark">推荐码&nbsp;&nbsp;&nbsp;&nbsp;</ion-label>
+                <ion-input formControlName="recommend" placeholder="请输入推荐码" type="number"></ion-input>
+                <ion-icon *ngIf="passwordForm.controls.recommend.valid && passwordForm.controls.recommend.dirty" item-end name="ios-checkmark-circle" style="color:#51C332"></ion-icon>
+                <ion-icon *ngIf="!passwordForm.controls.recommend.valid && passwordForm.controls.recommend.dirty" item-end name="ios-close-circle" style="color:red"></ion-icon>
+            </ion-item>
+            <ion-item style="font-size:1.25rem;height:4.5rem;border-bottom: none;">
+                <ion-label color="dark">验证码&nbsp;&nbsp;&nbsp;&nbsp;</ion-label>
+                <ion-input formControlName="verify" placeholder="验证码" type="number"></ion-input>
+                <ion-icon *ngIf="passwordForm.controls.verify.valid && passwordForm.controls.verify.dirty" item-end name="ios-checkmark-circle" style="color:#51C332"></ion-icon>
+                <ion-icon *ngIf="!passwordForm.controls.verify.valid && passwordForm.controls.verify.dirty" item-end name="ios-close-circle" style="color:red"></ion-icon>
+                <button ion-button item-end outline (click)="getVerifyCode(passwordForm.controls.account.value);$event.preventDefault();$event.stopPropagation();" [disabled]="!passwordForm.controls.account.valid||submitstate">{{verifystate}}</button>
+            </ion-item>
+        </div>
+        <br>
+        <div class="tip">
+            <img src="assets/images/login/registered_selected@{{dpr}}x.png" tappable class="radio" *ngIf="show; else elseBlock" (click)="agree()">
+            <ng-template #elseBlock>
+                <img src="assets/images/login/registered_select_nor@{{dpr}}x.png" tappable class="radio" (click)="agree()">
+            </ng-template>
+            <p>我已阅读并同意<em class="protocol" tappable (click)="alertServe()">《服务协议》</em></p>
+        </div>
+        <br>
+        <button ion-button block type="submit" style="margin:0 auto;width:92%;height:3.33rem;" [disabled]="!passwordForm.valid||submitted||!show||passwordForm.controls.password.value!=passwordForm.controls.confirmpassword.value||(passwordForm.controls.assetunit.value==''&&passwordForm.controls.recommend.value=='')">立即注册</button>
+        <br>
+    </form>
+
+
+</ion-content>
+<div class="slef_mock" *ngIf="showMock">
+    <div class="serve">
+        <div>
+            <p>本协议构成客户与 Beinew Trading Limited（以下称“运营商”）以及运营商后续开发和运营的其他网络站点，向客户提供的与期货账户设立及交易相关服务所达成的协议。 1、开立账户 1.1 客户仅此指示及授权运营商以客户姓名开立并维持一个或多个期货交易账户，并根据本协议所列明之条款在有关交易所进行期货交易。 1.2 客户在开户时应当提供自身的真实资料和信息，并保证在此期间其所提交的所有资料和信息（包括但不限于电子邮件地址、联系电话、联系地址、邮政编码、个人身份信息、征信信息等）真实、准确、完整。如客户的上述信息变更，客户应当及时书面通知运营商。客户授权运营商进行任何调查以证实上述信息。
+                1.3 客户有责任对客户名和密码进行保密，并对由第三方使用其客户名和密码进行的交易负责。 2、运营商提供的交易服务 2.1 运营商依照客户之指示进行期货交易，并可向客户提供有关期货之数据、资料或其他资讯，但上述数据、资料或资讯仅供参考，客户应当就期货交易之事宜独立做出判断，并承担相应的责任。 2.2 运营商代理执行客户定单，并可再行委托第三方经纪商或代理执行定单，且受委托的经纪商或代理享有所有与运营商相同的权利。所有交易应遵守相关市场或清算机构的规定、政策及适用的法规。运营商对任何交易所、市场、交易商、清算机构或监管机构的任何行动或决定不承担责任。
+                2.3 运营商不对由于通讯网络数据传输故障、终端、延迟等原因，导致交易指令可能出现的中断、停顿、延迟、数据错误等情况负责。 运营商代表或工作人员未获授权提供投资、税务或交易建议或招揽定单。运营商网站、产品、社区、交流群等的任何内容均不可视为购买或出售证券、期货或其它投资产品的一种建议或招揽。 3、客户指示及授权 3.1 客户有义务接受所有按本人定单指令进行的定单执行。客户发出之指令是不可撤销的，指令可以采用书面、口头、传真或其他途径，但在任何情况下相关交易风险皆由客户自行承担。
+                3.2 客户确认运营商并不知晓使用客户的客户名或密码发出定单的人是否为客户本人。除非运营商公司已被告知并同意，否则客户应不允许任何人进入其账户。客户本人负责其客户名及密码的保密性与使用，并同意如上述客户名及密码被窃取或遗失或出现非法进入客户账户的情况，应立即通过电话或电子邮件方式报告运营商。客户对使用其客户名／密码所进行的所有交易自行承担责任。 3.3 运营商已确认交易执行，但随后被交易所、交易网络或监管当局取消，在这种情况下，运营商确认的交易亦被视为取消。 3.4 运营商通常按照接受顺序处理订单。如定单延迟传送，或定单传送收到数据通信故障的影响，运营商不保证限价定单可以获得执行。
+                4、 佣金及费用 4.1 客户应在被要求时立即向运营商缴付其账户适用之任何佣金、费用、税金、支出及开支，客户同意运营商有权不时在其网站公布有关收费标准及明细的通知，或向客户账户直接发出相关账单。 4.2 客户同意运营商有权从客户账户中直接扣除4.1款下的相关费用。 4.3 由于客户未能履行费用支付的相关责任而引起之所有损失及开支，客户须向运营商承担责任，并赔偿由此给运营商造成的损失或额外费用。   5、投资管理平台投资人交易合作协议 5.1 本次交易合作由投资管理平台提供居间服务。在投资管理平台的撮合下，投资人与点买人协商一致，就双方秉承共享收益共担风险之原则，由点买人提供交易策略，由投资人利用自有账户和账户内资金进行交易合作事宜订立协议。
+                5.2 本协议中，除非上下文另有解释，下列词语具有如下含义： 5.2.1. 投资管理平台：指运营方运营的期货（金融）交易信息服务中介平台，面向运营方的注册用户提供包括但不限于芝加哥期货交易所期货交易合作信息发布、交易合作撮合、交易指令通讯、交易风控管理、交易清结算等服务的中介服务平台。 5.2.2. 点买人：指通过投资管理平台注册成为点买人的用户，作为投资人的交易合作方，负责向投资人提供交易策略的自然人。 5.2.3. 投资人：指通过与投资管理平台运营方签订协议成为投资人的用户，作为点买人的交易合作方，负责按点买人交易策略并利用自有账户和账户内资金进行交易的自然人或法人。
+                5.2.4. 买入指令：指点买人向投资人发出买入指令，买入指令指点买人要求投资人按照指定的价格委托买入指定交易品种。 5.2.5. 卖出指令：指点买人向投资人发出卖出指令，卖出指令指点买人要求投资人按照指定的价格委托卖出指定交易品种。 5.2.6. 浮动盈亏与浮动盈亏率：浮动盈亏＝（最新价－买入均价）＊成交数量。计算结果为正值（含零）时即为浮盈金额，计算结果为负值时即为浮亏金额。浮动盈亏率＝浮动盈亏／交易本金 ×100％。 5.2.7. 触发平仓线：当合作交易的浮动盈亏率达到特定数值时，由投资人即时卖出交易品种全部持有数量进行止损，此时该浮动盈亏率即为触发平仓线。
+                5.2.8. 平仓线由投资人和点买人协商确定。 5.3 本次交易合作基本信息 5.3.1. 交易本金： 5.3.2. 交易品种： 5.3.3. 交易数量： 5.3.4. 持仓时间： 5.3.5. 触发平仓线： 5.4 投资人权利与义务 5.4.1. 投资人负责提供用于本次交易合作的账户和资金。 5.4.2. 投资人承担本次交易产生的佣金、印花税和过户费，但投资人可根据事先与点买人的约定比例从点买人款项中收回相应补偿款。 5.4.3. 投资人按照点买人的买入指令/卖出指令执行交易品种的买入/卖出。
+                5.5 交易清结算和盈亏分配约定：投资人和点买人共同委托投资管理平台按照以下规则对本次交易合作进行清结算，双方同意以投资管理平台的清结算数据作为双方盈亏分配的共同依据。 5.5.1. 买入成交金额与买入成交均价：买入成交金额来自交易所回报数据，不含佣金、印花税和过户费。买入成交均价＝买入成交金额／交易数量。 5.5.2. 卖出成交金额与卖出成交均价：卖出成交金额来自交易所回报数据，不含佣金、印花税和过户费。卖出成交均价＝卖出成交金额／交易数量。 5.5.3. 交易盈亏：交易盈亏＝卖出成交金额－买入成交金额。计算结果为正值（含零）时即为交易盈利，计算结果为负值时即为交易亏损
+                。 5.5.4. 盈利分配：点买人与投资人共同享有本次交易盈利。盈利分配由投资人和点买人事先约定。 5.5.5. 亏损赔付：点买人与投资人共同承担本次交易亏损。亏损承担由投资人和点买人事先约定。 5.6 特别约定 5.6.1. 因投资管理平台清结算数据错误造成双方盈利分配或亏损赔付出现数额差错的，双方约定在投资管理平台规定时限内将异议提交至投资管理平台，通过投资管理平台向对方索取差额补差。如异议一方未在规定时限内将提交异议，视同放弃通过投资管理平台向对方索取差额补差之权利。
+                5.6.2. 因不可抗力导致投资管理平台系统故障，引发交易指令通讯失败或交易指令执行失败，双方约定以投资管理平台系统恢复就近时间重新执行并以执行的最终结果进行交易清结算。 5.7 协议的签订、成立和生效 5.7.1. 签订：本协议由投资人和点买人通过投资管理平台以网络页面点击确认的方式签署。 5.7.2. 成立：本协议自点买人或投资人签订本协议之日（以两者孰后签订时间为准）成立。 5.7.3. 生效：本协议一经双方签订即生效。 5.8 其他事项 5.8.1. 点买人和投资人必须通过本协议约定的方式或其他投资管理平台认可的方式进行交易合作,否则由此引起的法律后果及违约责任由投资人或点买人自行承担。
+                5.8.2. 本协议项下的双方非个人隐私信息，如昵称等，均为公开信息。 5.8.3. 本协议项下双方交易信息归属投资管理平台所有，投资管理平台可根据自身经营需求商业化无偿使用。 5.8.4. 本协议受中华人民共和国法律管辖并按中华人民共和国法律解释。协议履行中发生争议，可由各方协商解决，协商不成可向运营方所在地人民法院提起诉讼。
+            </p>
+        </div>
+
+        <button ion-button (click)="alertServe()">确定</button>
+    </div>
+</div>

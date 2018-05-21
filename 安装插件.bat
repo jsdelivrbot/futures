@@ -1,0 +1,1 @@
+cnpm install ion-multi-picker --save

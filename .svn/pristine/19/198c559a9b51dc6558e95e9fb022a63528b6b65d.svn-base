@@ -1,0 +1,23 @@
+page-login {
+    .logo {
+        width: 24.8%;
+        margin: 0 auto;
+        margin-top: 5rem;
+    }
+    .form_wrap {
+        width: 80%;
+        border: 1px solid #000000;
+        border-radius: 0.8rem;
+        margin: 0 auto;
+        margin-top: 3.33rem;
+        overflow: hidden;
+    }
+    .forget_password {
+        font-family: PingFangSC-Regular;
+        font-size: 1.25rem;
+        color: #999999;
+        letter-spacing: 0;
+        text-align: center;
+        padding-top: 9.5rem;
+    }
+}

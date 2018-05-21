@@ -1,0 +1,50 @@
+[
+    {
+        "outputFile": "C:\\Users\\74274\\Desktop\\DDY\\platforms\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 63,
+                    "endOffset": 114
+                },
+                "from": {
+                    "file": "C:\\Users\\74274\\Desktop\\DDY\\platforms\\android\\res\\values\\strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 119,
+                    "endColumn": 40,
+                    "endOffset": 155
+                },
+                "from": {
+                    "file": "C:\\Users\\74274\\Desktop\\DDY\\platforms\\android\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 40,
+                        "endOffset": 91
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 160,
+                    "endColumn": 58,
+                    "endOffset": 214
+                },
+                "from": {
+                    "file": "C:\\Users\\74274\\Desktop\\DDY\\platforms\\android\\res\\values\\strings.xml"
+                }
+            }
+        ]
+    }
+]

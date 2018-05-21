@@ -1,0 +1,182 @@
+page-trade {
+    .toolbar-ios {
+        padding: 0!important;
+    }
+    .font_red {
+        color: #DF3F43!important;
+    }
+    .font_green {
+        color: #19B03F!important;
+    }
+    .bg_red {
+        background: #DF3F43!important;
+    }
+    .bg_green {
+        background: #19B03F!important;
+    }
+    .bg_gray {
+        background: gray!important;
+    }
+    .nt {
+        height: 0.83rem;
+        width: 100%;
+    }
+    .segment-ios .segment-button {
+        color: white!important;
+    }
+    .segment-ios .segment-button.segment-activated {
+        color: #DF3F43!important;
+    }
+    .description {
+        text-align: center;
+        position: relative;
+        height: 2.5rem;
+        border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+        em {
+            font-style: normal;
+            font-family: PingFangSC-Regular;
+            font-size: 1.25rem;
+            color: #999999;
+            letter-spacing: 2px;
+            line-height: 2.5rem;
+        }
+        &>em:first-child {
+            position: absolute;
+            left: 1.25rem;
+        }
+        &>em:last-child {
+            position: absolute;
+            right: 1.25rem;
+        }
+    }
+    .self_item {
+        width: 100%;
+        height: 4.17rem;
+        position: relative;
+        text-align: center;
+        .str_title {
+            position: absolute;
+            left: 1.25rem;
+            top: 0.42rem;
+            font-family: PingFangSC-Regular;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+        .str_code {
+            font-weight: normal;
+            position: absolute;
+            left: 1.25rem;
+            top: 2.38rem;
+            font-family: PingFangSC-Regular;
+            font-size: 1rem;
+            color: #DF3F43;
+            letter-spacing: 0;
+        }
+        em {
+            font-style: normal;
+            font-family: PingFangSC-Regular;
+            font-size: 1.5rem;
+            letter-spacing: 0;
+            line-height: 4.17rem;
+        }
+        section {
+            position: absolute;
+            right: 1.25rem;
+            height: 2.5rem;
+            top: 0.83rem;
+            padding: 0.83rem;
+            background: #DF3F43;
+            text-align: center;
+            border-radius: 0.25rem;
+            p {
+                font-family: PingFangSC-Regular;
+                font-size: 1.5rem;
+                letter-spacing: 0;
+                color: white;
+                line-height: 0.84rem;
+            }
+        }
+    }
+    .hold_item {
+        width: 100%;
+        .hold_tit {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            height: 2.5rem;
+            em {
+                font-style: normal;
+                font-family: PingFangSC-Regular;
+                font-size: 1.25rem;
+                letter-spacing: 2px;
+                position: absolute;
+                top: 0.42rem;
+            }
+            .em0 {
+                left: 2.08rem;
+            }
+            .em1 {
+                right: 1.25rem;
+            }
+            p {
+                font-family: PingFangSC-Regular;
+                font-size: 1.25rem;
+                color: #DF3F43;
+                letter-spacing: 2px;
+                line-height: 2.2rem;
+            }
+            .hold_nt {
+                width: 3px;
+                height: 1.25rem;
+                position: absolute;
+                left: 1.25rem;
+                top: 0.42rem;
+                background: #DF3F43;
+            }
+        }
+        table {
+            width: 100%;
+            text-align: center;
+            tr {
+                border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+                height: 4.17rem;
+                font-family: PingFangSC-Regular;
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+            }
+            tr:nth-child(1) {
+                font-family: PingFangSC-Regular;
+                font-size: 1.25rem;
+                color: #999999;
+                letter-spacing: 2px;
+                height: 1.85rem;
+            }
+            td:nth-child(1) {
+                text-align: left;
+                position: relative;
+                left: 1.25rem;
+                strong {
+                    font-family: PingFangSC-Regular;
+                    font-size: 1.5rem;
+                    letter-spacing: 2px;
+                }
+                em {
+                    font-style: normal;
+                    font-family: PingFangSC-Regular;
+                    font-size: 1rem;
+                    color: #DF3F43;
+                    letter-spacing: 0;
+                }
+            }
+            td:last-child {
+                text-align: right;
+                position: relative;
+                right: 1.25rem;
+            }
+            td {
+                width: 25%;
+                overflow: hidden;
+            }
+        }
+    }
+}

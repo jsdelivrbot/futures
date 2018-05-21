@@ -1,0 +1,99 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>期货</ion-title>
+        <button class="head_but div_redbg" item-end ion-button (click)="goNextPage('customerservice')">
+            <img class="home_headimg" src="assets/images/home/home_nav_icon_service@{{dpr}}x.png">
+            <p class="home_headp th_second" >&nbsp;客服</p>
+        </button>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="home_banner" tappable (click)="goNextPage('noviceschoolpage')">
+        <ion-slides pager autoplay='3000' loop='true' *ngIf="bannerdata.length!=0">
+            <ion-slide *ngFor="let banner of bannerdata">
+                <img src="{{img_ip}}{{banner.url}}">
+            </ion-slide>
+        </ion-slides>
+    </div>
+    <div class="home_tip div_bgcolor">
+        <table>
+            <tr>
+                <td class="th_gray">在线<em>{{online}}</em>人</td>
+                <td class="th_gray">182*****</td>
+                <td class="th_gray">13:15:26</td>
+                <td><em>做多</em></td>
+                <td class="th_gray">00300</td>
+            </tr>
+        </table>
+    </div>
+    <div class="home_nav div_bgcolor" *ngIf="globalData.showModule">
+        <button (click)="goNextPage('trade')" class="div_bgcolor">
+            <img src="assets/images/home/home_btn_trade@{{dpr}}x.png">
+            <p class="th_light">实盘交易</p>
+        </button>
+        <button (click)="goNextPage('simulation')" class="div_bgcolor">
+            <img src="assets/images/home/home_btn_practice@{{dpr}}x.png">
+            <p class="th_light">模拟练习</p>
+        </button>
+        <button (click)="goNextPage('novicewelfare')" class="div_bgcolor">
+            <img src="assets/images/home/home_btn_welfare@{{dpr}}x.png">
+            <p class="th_light">新手福利</p>
+        </button>
+        <button (click)="goNextPage('promotion')" class="div_bgcolor">
+            <img src="assets/images/home/home_btn_promotion@{{dpr}}x.png">
+            <p class="th_light">推广赚钱</p>
+        </button>
+    </div>
+    <div class="home_subtitle" *ngIf="globalData.showModule">
+        <span class="nt"></span>
+        <span class="nt"></span>
+        <p class="th_light">实盘交易</p>
+    </div>
+    <div class="home_contitle div_bgcolor" *ngIf="homeinnerdata.length!=0">
+        <p class="th_light">国内期货</p>
+    </div>
+    <button class="home_cont div_bgcolor" *ngFor="let x of homeinnerdata" (click)="goNextPage('futures',x,1)">
+        <div>
+            <img src="{{x.ico}}">
+        </div>
+        <div class="div_bottom">
+            <table>
+                <tr>
+                    <td class="th_light">{{x.futuresName}}</td>
+                    <td *ngIf="x.rating"  [ngClass]="{'font_red': x.rating>=0, 'font_green': x.rating<0}">{{x.nowPrice|number: '1.0-2'}}&nbsp;&nbsp;{{x.rating|number: '1.0-2'}}%</td>
+                </tr>
+                <tr>
+                    <td class="th_gray">{{x.description}}</td>
+                    <td *ngIf="!x.isTradeTime" class="th_gray">非交易时间</td>
+                </tr>
+            </table>
+        </div>
+    </button>
+    <div class="home_contitle div_bgcolor" *ngIf="homeouterdata.length!=0">
+        <p class="th_light">国际期货</p>
+    </div>
+    <button class="home_cont div_bgcolor" *ngFor="let y of homeouterdata" (click)="goNextPage('futures',y,0)">
+        <div  class="th_light">
+            <img src="{{y.ico}}">
+        </div>
+        <div class="div_bottom">
+            <table>
+                <tr>
+                    <td class="th_light">{{y.futuresName}}</td>
+                    <td  *ngIf="y.rating" [ngClass]="{'font_red': y.rating>=0, 'font_green': y.rating<0}">{{y.nowPrice|number: '1.0-2'}}&nbsp;&nbsp;{{y.rating|number: '1.0-2'}}%</td>
+                </tr>
+                <tr>
+                    <td class="th_gray">{{y.description}}</td>
+                    <td *ngIf="!y.isTradeTime" class="th_gray">非交易时间</td>
+                </tr>
+            </table>
+        </div>
+    </button>
+    <br>
+    <br>
+    <!-- <div class="home_foottip">
+        <p class="th_gray">客服热线：40016898888</p>
+        <p class="th_gray" *ngIf="globalData.showModule">交易由纽约商品交易所及港交所实盘对接</p>
+        <p class="th_gray" *ngIf="globalData.showModule">合作伙伴：纽约商业交易所|芝加哥商品交易所|港交所</p>
+    </div> -->
+</ion-content>

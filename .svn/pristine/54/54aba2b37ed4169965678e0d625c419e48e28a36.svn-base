@@ -1,0 +1,12 @@
+page-order {
+    // .tabbar {
+    //     opacity: 1!important;
+    //     top: 3.67rem!important;
+    //     height: 3.4rem!important;
+    //     min-height: 3.4rem!important;
+    //     max-height: 3.4rem!important;
+    // }
+    .tabs-ios .tab-button[aria-selected=true] {
+        border-bottom: 2px solid #DF3F43!important;
+    }
+}

@@ -1,0 +1,4 @@
+[0127/163001.147:ERROR:http_transport_win.cc(268)] WinHttpSendRequest: 操作超时  (0x2ee2)
+[0127/180808.605:ERROR:http_transport_win.cc(268)] WinHttpSendRequest: 操作超时  (0x2ee2)
+[0129/164557.600:ERROR:http_transport_win.cc(268)] WinHttpSendRequest: 操作超时  (0x2ee2)
+[0202/165355.677:ERROR:http_transport_win.cc(268)] WinHttpSendRequest: 操作超时  (0x2ee2)

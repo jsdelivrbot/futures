@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{codeName}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-item>
+        <ion-label>可用资金<em>&nbsp;&nbsp;{{funds|number: '1.0-2'}}元</em></ion-label>
+        <button ion-button item-end outline [navPush]="recharge">充值</button>
+    </ion-item>
+    <ion-item>
+        <ion-label>{{codeName}}-{{code}}{{contract}}</ion-label>
+        <ion-note item-end>持仓至{{endTime}}自动平仓</ion-note>
+    </ion-item>
+    <ion-item>
+        <ion-label>交易数量</ion-label>
+        <button ion-button item-end outline (click)="firstChoose(x)" class="squar_but" [ngClass]="{'_active':choose1==x}" *ngFor="let x of tradeNumOptions">{{x}}手</button>
+    </ion-item>
+    <ion-item>
+        <ion-label>触发止盈</ion-label>
+        <ion-note item-end>{{deposit*stoplossPercent*stopprofitMutipleLoss*choose1|number: '1.0-2'}}元</ion-note>
+    </ion-item>
+    <ion-item>
+        <ion-label>触发止损</ion-label>
+        <button ion-button item-end outline (click)="secChoose(1,deposit*stoplossPercent*choose1)" class="squar_but" [ngClass]="{'_active':choose2==1}">-{{deposit*stoplossPercent*choose1|number: '1.0-2'}}元</button>
+        <button ion-button item-end outline (click)="secChoose(2,deposit*stoplossPercent*choose1*stoplossStepsTimes)" class="squar_but" [ngClass]="{'_active':choose2==2}">-{{deposit*stoplossPercent*choose1*stoplossStepsTimes|number: '1.0-2'}}元</button>
+        <button ion-button item-end outline (click)="secChoose(3,deposit*stoplossPercent*choose1*stoplossStepsTimes*stoplossStepsTimes)" class="squar_but" [ngClass]="{'_active':choose2==3}">-{{deposit*stoplossPercent*choose1*stoplossStepsTimes*stoplossStepsTimes|number: '1.0-2'}}元</button>
+    </ion-item>
+    <ion-item class="mid_item">
+        <ion-icon name="ios-ionic" item-start color="danger"></ion-icon>
+        <ion-label>即时买入</ion-label>
+        <ion-note item-end>最新买入价{{nowPrice|number: '1.0-2'}}</ion-note>
+    </ion-item>
+    <ion-item>
+        <ion-label>冻结保证金</ion-label>
+        <ion-note item-end>{{deposit*choose1*choose2_step|number: '1.0-2'}}元</ion-note>
+    </ion-item>
+    <ion-item>
+        <ion-label>交易综合费</ion-label>
+        <ion-note item-end>{{totalFee|number: '1.0-2'}}元</ion-note>
+    </ion-item>
+    <ion-item>
+        <ion-label>汇率换算</ion-label>
+        <ion-note item-end>1{{currencyName}}={{buyPrice}}元人民币</ion-note>
+    </ion-item>
+    <ion-item detail-push (click)="opModal()">
+        <ion-label>优惠券</ion-label>
+        <ion-note item-end *ngIf="coupon!=null&&coupon.couponType==1">使用1张（￥-{{coupon.faceValue}}）</ion-note>
+        <ion-note item-end *ngIf="coupon!=null&&coupon.couponType==2">使用1张（{{coupon.faceValue}}折）</ion-note>
+    </ion-item>
+    <p class="bot_p">
+        *实盘交易时会为您匹配合作投资人，执行您的买卖指令，并与 您共享收益共担风险
+    </p>
+</ion-content>
+<ion-footer>
+    <div class="_footer">
+        <div>
+            <button ion-button class="div_bgcolor th_light">合计：￥{{totalPrice|number: '1.0-2'}}</button>
+        </div>
+        <div>
+            <!-- [disabled]="but_state" -->
+            <button ion-button *ngIf="buyState=='buyup'" [disabled]="but_state" (click)="buyIt('V')">{{but1_text}}</button>
+            <button ion-button color='secondary' [disabled]="but_state" (click)="buyIt('X')" *ngIf="buyState=='buydown'">{{but2_text}}</button>
+        </div>
+    </div>
+</ion-footer>
+<div class="modal_mock" *ngIf="modal_mock" [@modalMock]="'active'"></div>
